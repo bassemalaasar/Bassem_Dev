@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Professional portfolio of Bassem Al-Aasar, a graphic designer specializing in branding, logo design, social media visuals, and more.">
+  <meta name="author" content="Bassem Al-Aasar">
+  <link rel="icon" href="3.png" type="image/x-icon">
+  <title>Bassem Al-Aasar - Graphic Designer</title>
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;500;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Outfit', sans-serif;
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: #fff;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      padding: 20px 10%;
+      background: rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(10px);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    }
+
+    header h1 {
+      color: #00e5ff;
+      font-size: 1.8rem;
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 25px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 1rem;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      background: #00e5ff;
+      bottom: -5px;
+      left: 0;
+      transition: width 0.3s ease-in-out;
+    }
+
+    nav a:hover {
+      color: #00e5ff;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    .menu-icon {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+    }
+
+    .menu-icon div {
+      width: 25px;
+      height: 3px;
+      background: #fff;
+    }
+
+    
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding-top: 100px;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.3);
+      z-index: 1;
+    }
+
+    .hero h2, .hero p, .cta-btn {
+      z-index: 2;
+    }
+
+    .hero h2 {
+      font-size: 3.5rem;
+      color: #00e5ff;
+      margin-bottom: 15px;
+    }
+
+    .hero p {
+      font-size: 1.4rem;
+      max-width: 700px;
+      color: #fff;
+    }
+    
+    @media (max-width: 768px) {
+      .hero h2{
+        font-size: 1.8rem;
+      }
+      nav ul {
+        display: none;
+        position: absolute;
+        top: 80px;
+        right: 10%;
+        background: #111;
+        flex-direction: column;
+        padding: 20px;
+        border-radius: 10px;
+        width: 200px;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+      }
+
+      nav ul.active {
+        display: flex;
+      }
+
+      .menu-icon {
+        display: flex;
+      }
+    }
+    .cta-btn {
+      margin-top: 35px;
+      padding: 14px 36px;
+      border: none;
+      background: #00e5ff;
+      color: #000;
+      font-weight: bold;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-size: 1rem;
+    }
+
+    .cta-btn:hover {
+      background: #00bcd4;
+      transform: scale(1.05);
+    }
+
+    .floating-shape {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.2;
+      animation: float 8s ease-in-out infinite;
+      z-index: 0;
+    }
+
+    .shape1 {
+      width: 120px;
+      height: 120px;
+      background: #00e5ff;
+      top: 10%;
+      left: 15%;
+      animation-delay: 0s;
+    }
+
+    .shape2 {
+      width: 80px;
+      height: 80px;
+      background: #00bcd4;
+      bottom: 20%;
+      right: 20%;
+      animation-delay: 2s;
+    }
+
+    .shape3 {
+      width: 100px;
+      height: 100px;
+      background: #26c6da;
+      top: 40%;
+      right: 10%;
+      animation-delay: 4s;
+    }
+    .shape4 {
+      width: 100px;
+      height: 100px;
+      background: #26c6da;
+      top: 50%;
+      right: 50%;
+      animation-delay: 4s;
+    }
+    .shape5 {
+      width: 100px;
+      height: 100px;
+      background: #26c6da;
+      top: 70%;
+      right: 80%;
+      animation-delay: 4s;
+    }
+    .shape6 {
+      width: 100px;
+      height: 100px;
+      background: #26c6da;
+      top: 80%;
+      right: 60%;
+      animation-delay: 4s;
+    }
+    .shape7 {
+      width: 100px;
+      height: 100px;
+      background: #26c6da;
+      top: 60%;
+      right: 30%;
+      animation-delay: 4s;
+    }
+    .shape8 {
+      width: 100px;
+      height: 100px;
+      background: #26c6da;
+      top: 20%;
+      right: 40%;
+      animation-delay: 4s;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+
+    section {
+      padding: 100px 10% 60px;
+      text-align: center;
+    }
+
+    section h3 {
+      font-size: 2.8rem;
+      color: #00e5ff;
+      margin-bottom: 30px;
+      position: relative;
+    }
+
+    section h3::after {
+      content: '';
+      display: block;
+      width: 60px;
+      height: 3px;
+      background: #00e5ff;
+      margin: 10px auto 0;
+    }
+
+    .section-img {
+      width: 100%;
+      max-width: 600px;
+      margin: 20px auto;
+      border-radius: 20px;
+      box-shadow: 0 0 30px rgba(0, 229, 255, 0.2);
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 16px;
+      padding: 25px;
+      box-shadow: 0 8px 24px rgba(0, 229, 255, 0.1);
+      margin: 20px auto;
+      max-width: 850px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 30px rgba(0,229,255,0.3);
+    }
+
+    .testimonial {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      text-align: left;
+    }
+
+    .testimonial img {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #00e5ff;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      max-width: 600px;
+      margin: auto;
+      margin-top: 20px;
+    }
+
+    input, textarea {
+      padding: 18px;
+      border-radius: 12px;
+      border: none;
+      background: #1a1a1a;
+      color: #fff;
+      font-size: 1rem;
+    }
+
+    button.submit-btn {
+      background: #00e5ff;
+      color: #000;
+      padding: 16px;
+      border: none;
+      font-weight: bold;
+      border-radius: 12px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    button.submit-btn:hover {
+      background: #00bcd4;
+    }
+
+    .whatsapp-float {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #25d366;
+      color: white;
+      padding: 14px 20px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: bold;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      z-index: 999;
+    }
+
+    .whatsapp-float i {
+      font-size: 22px;
+    }
+        /* إضافة تنسيقات لقسم الخدمات والبورتفوليو */
+
+    /* إضافة تنسيقات لقسم الخدمات والبورتفوليو */
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .service-card, .portfolio-card {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 14px;
+      padding: 20px;
+      box-shadow: 0 6px 20px rgba(0, 229, 255, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      text-align: center;
+    }
+
+    .service-card:hover, .portfolio-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,229,255,0.2);
+    }
+
+    .service-card h4, .portfolio-card h4 {
+      margin-top: 10px;
+      color: #00e5ff;
+    }
+
+    .service-card p, .portfolio-card p {
+      font-size: 0.95rem;
+      margin-top: 10px;
+    }
+
+    .service-card i {
+      font-size: 2.5rem;
+      color: #00e5ff;
+      margin-bottom: 10px;
+    }
+    /*********************/
+    .site-footer {
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(12px);
+  padding: 60px 10%;
+  text-align: center;
+  color: #fff;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 60px;
+}
+
+.site-footer h3 {
+  font-size: 1.8rem;
+  color: #00e5ff;
+  margin-bottom: 25px;
+  position: relative;
+}
+
+.site-footer h3::after {
+  content: '';
+  display: block;
+  width: 60px;
+  height: 3px;
+  background: #00e5ff;
+  margin: 10px auto 0;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  margin-bottom: 25px;
+  flex-wrap: wrap;
+}
+
+.social-icons a {
+  color: #fff;
+  font-size: 1.5rem;
+  transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #00e5ff;
+}
+
+.site-footer p {
+  font-size: 0.9rem;
+  color: #aaa;
+  margin-top: 15px;
+}
+
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Bassem</h1>
+    <nav>
+      <div class="menu-icon" onclick="toggleMenu()">
+        <div></div><div></div><div></div>
+      </div>
+      <ul id="nav-menu">
+        <li><a href="#about">About</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="#testimonials">Testimonials</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero" data-aos="fade-up">
+    <div class="floating-shape shape1"></div>
+    <div class="floating-shape shape2"></div>
+    <div class="floating-shape shape3"></div>
+    <div class="floating-shape shape4"></div>
+    <div class="floating-shape shape5"></div>
+    <div class="floating-shape shape6"></div>
+    <div class="floating-shape shape7"></div>
+    <div class="floating-shape shape8"></div>
+    <h2>Hello, I'm Bassem Al-Aasar</h2>
+    <p>A professional graphic designer who brings ideas to life with modern and clean visuals.</p>
+    <!-- <button class="cta-btn">Download My CV</button> -->
+  </section>
+
+  <section id="about" data-aos="fade-up" data-tilt>
+    <h3>Who I Am</h3>
+    <img src="1.webp" class="section-img" alt="About" loading="lazy">
+    <p>I’m a passionate and detail-oriented web designer specializing in creating modern, responsive, and user-friendly websites. Whether you need a personal portfolio, a landing page, or a full business website, I focus on clean layouts, smooth animations, and intuitive user experience to help your brand stand out online.
+Let's bring your vision to life with a professional design that leaves a lasting impression.</p>
+  </section>
+
+<section id="services" data-aos="fade-up" data-tilt>
+  <h3>My Services</h3>
+  <div class="grid-container">
+    <div class="service-card" data-tilt>
+      <i class="fas fa-code"></i>
+      <h4>Responsive Design</h4>
+      <p>Websites that look perfect on all screen sizes and devices.</p>
+    </div>
+    <div class="service-card" data-tilt>
+      <i class="fas fa-magic"></i>
+      <h4>Landing Page Design</h4>
+      <p>High-converting landing pages to support your marketing goals.</p>
+    </div>
+    <div class="service-card" data-tilt>
+      <i class="fas fa-sync-alt"></i>
+      <h4>Website Redesign</h4>
+      <p>Modern redesigns to enhance user experience and visual appeal.</p>
+    </div>
+    <div class="service-card" data-tilt>
+      <i class="fas fa-bolt"></i>
+      <h4>Speed Optimization</h4>
+      <p>Improve your website speed for better performance and SEO.</p>
+    </div>
+    <div class="service-card" data-tilt>
+      <i class="fas fa-chart-line"></i>
+      <h4>SEO Basics</h4>
+      <p>Essential SEO setup to help your website get discovered.</p>
+    </div>
+    <div class="service-card" data-tilt>
+      <i class="fas fa-pencil-ruler"></i>
+      <h4>Logo Design</h4>
+      <p>Unique, memorable logos tailored to your brand identity.</p>
+    </div>
+    <div class="service-card" data-tilt>
+      <i class="fas fa-palette"></i>
+      <h4>Branding</h4>
+      <p>Complete branding packages for consistent brand presence.</p>
+    </div>
+    <div class="service-card" data-tilt>
+      <i class="fas fa-share-alt"></i>
+      <h4>Social Media</h4>
+      <p>Creative post designs optimized for engagement.</p>
+    </div>
+    <div class="service-card" data-tilt>
+      <i class="fas fa-box-open"></i>
+      <h4>Packaging</h4>
+      <p>Custom package designs that make your product stand out.</p>
+    </div>
+  </div>
+</section>
+
+
+
+<section id="portfolio" data-aos="fade-up" data-tilt>
+  <h3>Latest Projects</h3>
+  <div class="grid-container">
+    <div class="portfolio-card" data-tilt>
+      <img src="2.png" alt="Portfolio Website" style="width:100%; border-radius:12px;" loading="lazy">
+      <h4>Personal Portfolio</h4>
+      <p>A clean, animated portfolio site for a creative designer.</p>
+    </div>
+    <div class="portfolio-card" data-tilt>
+      <img src="3.png" alt="Business Landing Page" style="width:100%; border-radius:12px;" loading="lazy">
+      <h4>Business Landing Page</h4>
+      <p>Responsive and fast-loading landing page for a service company.</p>
+    </div>
+    <div class="portfolio-card" data-tilt>
+      <img src="4.jpg" alt="E-commerce UI" style="width:100%; border-radius:12px;" loading="lazy">
+      <h4>E-Commerce Layout</h4>
+      <p>Modern UI layout for an online store built with HTML, CSS & JS.</p>
+    </div>
+    <div class="portfolio-card" data-tilt>
+      <img src="5.webp" alt="Startup Site" style="width:100%; border-radius:12px;" loading="lazy">
+      <h4>Startup Website</h4>
+      <p>Professional homepage for a startup with animated sections.</p>
+    </div>
+  </div>
+</section>
+
+
+  <section id="testimonials" data-aos="fade-up">
+    <h3>What Clients Say</h3>
+    <div class="card testimonial" data-tilt>
+      <img src="6.png" alt="Client A" loading="lazy">
+      <p><strong>James : </strong>"Clean code, beautiful layout, and excellent communication. Will definitely work with him again."</p>
+    </div>
+    <div class="card testimonial" data-tilt>
+      <img src="6.png" alt="Client B" loading="lazy">
+      <p><strong>Mary : </strong>"Very professional and fast! The design exceeded my expectations and works perfectly on mobile. Highly recommended."</p>
+    </div>
+    <div class="card testimonial" data-tilt>
+      <img src="6.png" alt="Client B" loading="lazy">
+      <p><strong>William : </strong>"Bassem delivered exactly what I needed. Smooth animations and modern style. Great work!"</p>
+    </div>
+  </section>
+
+  <section id="contact" data-aos="fade-up" data-tilt>
+    <h3>Let’s Work Together</h3>
+    <form>
+      <input type="text" placeholder="Your Name" required>
+      <input type="email" placeholder="Your Email" required>
+      <textarea rows="5" placeholder="Your Message" required></textarea>
+      <button class="submit-btn">Send Message</button>
+    </form>
+  </section>
+
+<footer data-aos="fade-up" data-tilt class="site-footer">
+  <h3>Stay Connected</h3>
+  <div class="social-icons">
+    <a href="https://www.facebook.com/profile.php?id=100089759529184" target="_blank"><i class="fab fa-facebook-f"></i></a>
+    <!-- <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin-in"></i></a> -->
+    <a href="mailto:bassemalaasar321@gmail.com"><i class="fas fa-envelope"></i></a>
+  </div>
+  <p>© 2025 Bassem Al-Aasar. All rights reserved.</p>
+</footer>
+
+
+
+  <a class="whatsapp-float" href="https://wa.me/201080145935" target="_blank" rel="noopener noreferrer">
+    <i class="fab fa-whatsapp"></i> WhatsApp Me
+  </a>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vanilla-tilt@1.8.1/dist/vanilla-tilt.min.js"></script>
+  <script>
+    AOS.init({ duration: 1200, once: true });
+    VanillaTilt.init(document.querySelectorAll("[data-tilt]"), {
+  max: 10,           // تقليل زاوية الإمالة = سلاسة أكثر
+  speed: 800,        // زيادة السرعة يجعل الحركة أخف
+  scale: 1.02,       // تكبير خفيف أثناء التحريك
+  glare: true,
+  "max-glare": 0.1,  // تقليل اللمعان شويه عشان ميبقاش مزعج
+  easing: "cubic-bezier(.03,.98,.52,.99)" // منحنى حركة ناعم وأسرع
+    });
+
+    function toggleMenu() {
+      document.getElementById('nav-menu').classList.toggle('active');
+    }
+  </script>
+</body>
+</html>
